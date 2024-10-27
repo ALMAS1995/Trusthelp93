@@ -1,0 +1,261 @@
+<html><head><base href="https://trusthelp.com/faire-un-don">
+<meta charset="UTF-8">
+<title>TRUSTHELP - Faire un Don</title>
+<style>
+    :root {
+        --neon-blue: #00ffff;
+        --neon-pink: #ff69b4;
+        --dark-bg: #0a0a2e;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(45deg, var(--dark-bg), #1a1a4a);
+        color: #fff;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .nav-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        z-index: 1000;
+        border-bottom: 1px solid var(--neon-blue);
+        display: flex;
+        align-items: center;
+    }
+
+    .brand-title {
+        color: var(--neon-pink);
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-shadow: 0 0 10px var(--neon-pink);
+        margin-right: 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        color: var(--neon-blue);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background: rgba(0, 255, 255, 0.1);
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .donation-link {
+        color: var(--neon-pink) !important;
+        text-shadow: 0 0 5px var(--neon-pink);
+    }
+
+    .donation-container {
+        max-width: 800px;
+        margin: 150px auto 50px;
+        padding: 3rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        border: 1px solid var(--neon-pink);
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .donation-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(255, 105, 180, 0.1),
+            transparent
+        );
+        animation: lightEffect 4s linear infinite;
+    }
+
+    @keyframes lightEffect {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .donation-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .donation-title {
+        font-size: 2.5rem;
+        color: var(--neon-pink);
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px var(--neon-pink);
+        animation: pulseText 2s infinite;
+    }
+
+    .donation-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: #fff;
+    }
+
+    .donation-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        background: linear-gradient(45deg, var(--neon-pink), #ff00ff);
+        border: none;
+        border-radius: 25px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .donation-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px var(--neon-pink);
+    }
+
+    @keyframes pulseText {
+        0% {
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+        50% {
+            text-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+        }
+        100% {
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+    }
+
+    .heart-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nav-header">
+        <div class="brand-title">TRUSTHELP</div>
+        <nav class="nav-links">
+            <a href="/accueil" class="nav-link">Accueil</a>
+            <a href="/inscription-relation" class="nav-link">Inscription & Mise en relation</a>
+            <a href="/forum" class="nav-link">Forum</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/aide" class="nav-link">Aide</a>
+            <a href="/compte" class="nav-link">Compte</a>
+            <a href="/faire-un-don" class="nav-link donation-link">Faire un Don</a>
+        </nav>
+    </header>
+
+    <div class="donation-container">
+        <div class="donation-content">
+            <h1 class="donation-title">Faire un Don</h1>
+            <p class="donation-text">
+                Vous pouvez faire un Don à l'association TrustHelp.<br>
+                Rendez-vous sur la cagnotte Leetchi : TrustHelp<br>
+                Merci pour votre générosité !
+            </p>
+            <a href="https://www.leetchi.com/fr/c/trusthelp" target="_blank" class="donation-button">
+                Accéder à la Cagnotte
+            </a>
+        </div>
+    </div>
+
+    <canvas class="heart-particles" id="particleCanvas"></canvas>
+
+    <script>
+        // Animation des particules en forme de cœur
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Ajuster la taille du canvas
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Classe Particle
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + 10;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.color = `rgba(255, ${Math.floor(Math.random() * 105) + 105}, 180, ${Math.random() * 0.5 + 0.5})`;
+            }
+
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+
+                if (this.y < -10) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Créer les particules
+        const particles = Array.from({ length: 50 }, () => new Particle());
+
+        // Animation
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

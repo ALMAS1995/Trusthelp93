@@ -1,0 +1,236 @@
+<html><head><base href="https://trusthelp.com/compte">
+<meta charset="UTF-8">
+<title>TRUSTHELP - Mon Compte</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-blue: #00ffff;
+        --neon-pink: #ff69b4;
+        --bg-dark: #0a0a2e;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(45deg, var(--bg-dark), #1a1a4a);
+        color: #fff;
+    }
+
+    .nav-header {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+        width: 100%;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .site-logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--primary-blue);
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        animation: glow 2s infinite;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .nav-link {
+        color: var(--neon-pink);
+        text-decoration: none;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+
+    .login-container {
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--primary-blue);
+    }
+
+    input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid var(--primary-blue);
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        border-radius: 5px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background: var(--primary-blue);
+        border: none;
+        color: var(--bg-dark);
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background: var(--neon-pink);
+        box-shadow: 0 0 15px var(--neon-pink);
+    }
+
+    .dashboard {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+    }
+
+    .notifications {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 1rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 10px var(--primary-blue); }
+        50% { text-shadow: 0 0 20px var(--primary-blue), 0 0 30px var(--primary-blue); }
+        100% { text-shadow: 0 0 10px var(--primary-blue); }
+    }
+</style>
+</head>
+<body>
+    <header class="nav-header">
+        <div class="site-logo">TRUSTHELP</div>
+        <nav class="nav-links">
+            <a href="/accueil" class="nav-link">Accueil</a>
+            <a href="/inscription-relation" class="nav-link">Inscription & Mise en relation</a>
+            <a href="/rencontre" class="nav-link">Rencontre</a>
+            <a href="/forum" class="nav-link">Forum</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/aide" class="nav-link">Aide</a>
+            <a href="/compte" class="nav-link">Compte</a>
+            <a href="/faire-un-don" class="nav-link">Faire un Don</a>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Connexion</h2>
+        <form id="loginForm" action="/api/login" method="POST">
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Se Connecter</button>
+        </form>
+    </div>
+
+    <div class="dashboard" style="display: none;">
+        <div class="notifications">
+            <h3>Notifications</h3>
+            <div id="notificationsList"></div>
+        </div>
+        <div class="messages">
+            <h3>Messages</h3>
+            <div id="messagesList"></div>
+        </div>
+    </div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('userToken', data.token);
+            document.querySelector('.login-container').style.display = 'none';
+            document.querySelector('.dashboard').style.display = 'block';
+            loadDashboard();
+        } else {
+            alert('Identifiants incorrects');
+        }
+    } catch (error) {
+        console.error('Erreur de connexion:', error);
+        alert('Erreur lors de la connexion');
+    }
+});
+
+async function loadDashboard() {
+    const token = localStorage.getItem('userToken');
+    if (!token) return;
+
+    try {
+        // Charger les notifications
+        const notifications = await fetch('/api/notifications', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const notifData = await notifications.json();
+        displayNotifications(notifData);
+
+        // Charger les messages
+        const messages = await fetch('/api/messages', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const messageData = await messages.json();
+        displayMessages(messageData);
+    } catch (error) {
+        console.error('Erreur de chargement du tableau de bord:', error);
+    }
+}
+
+function displayNotifications(notifications) {
+    const notifList = document.getElementById('notificationsList');
+    notifList.innerHTML = notifications.map(notif => `
+        <div class="notification ${notif.read ? '' : 'unread'}">
+            <p>${notif.message}</p>
+            <small>${new Date(notif.date).toLocaleString()}</small>
+        </div>
+    `).join('');
+}
+
+function displayMessages(messages) {
+    const messagesList = document.getElementById('messagesList');
+    messagesList.innerHTML = messages.map(msg => `
+        <div class="message ${msg.read ? '' : 'unread'}">
+            <h4>De: ${msg.sender}</h4>
+            <p>${msg.content}</p>
+            <small>${new Date(msg.date).toLocaleString()}</small>
+            <button onclick="replyToMessage(${msg.id})">Répondre</button>
+        </div>
+    `).join('');
+}
+</script>
+</body>
+</html>

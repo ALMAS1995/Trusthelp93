@@ -1,0 +1,262 @@
+<html><head><base href="https://trusthelp.com/forum">
+<meta charset="UTF-8">
+<title>TRUSTHELP - Forum</title>
+<style>
+    :root {
+        --neon-blue: #00ffff;
+        --neon-purple: #ff00ff;
+        --dark-bg: #0a0a2e;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(45deg, var(--dark-bg), #1a1a4a);
+        color: #fff;
+        min-height: 100vh;
+    }
+
+    .nav-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        z-index: 1000;
+        border-bottom: 1px solid var(--neon-blue);
+        display: flex;
+        align-items: center;
+    }
+
+    .brand-title {
+        color: #ff69b4;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-shadow: 0 0 10px #ff69b4;
+        margin-right: 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        color: var(--neon-blue);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background: rgba(0, 255, 255, 0.1);
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .chat-container {
+        max-width: 1200px;
+        margin: 100px auto 20px;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 15px;
+        border: 1px solid var(--neon-blue);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    }
+
+    .chat-header {
+        text-align: center;
+        color: var(--neon-purple);
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px var(--neon-purple);
+    }
+
+    .chat-messages {
+        height: 500px;
+        overflow-y: auto;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .message {
+        margin-bottom: 1rem;
+        padding: 0.8rem;
+        border-radius: 10px;
+        animation: messageAppear 0.3s ease;
+    }
+
+    .message-sent {
+        background: rgba(0, 255, 255, 0.1);
+        margin-left: 20%;
+        border-left: 3px solid var(--neon-blue);
+    }
+
+    .message-received {
+        background: rgba(255, 0, 255, 0.1);
+        margin-right: 20%;
+        border-right: 3px solid var(--neon-purple);
+    }
+
+    .message-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .message-input-container {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .message-input {
+        flex: 1;
+        padding: 1rem;
+        border: none;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .message-input:focus {
+        outline: none;
+        box-shadow: 0 0 15px var(--neon-blue);
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .send-button {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .send-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+    @keyframes messageAppear {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--neon-blue), var(--neon-purple));
+        border-radius: 4px;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nav-header">
+        <div class="brand-title">TRUSTHELP</div>
+        <nav class="nav-links">
+            <a href="/accueil" class="nav-link">Accueil</a>
+            <a href="/inscription-relation" class="nav-link">Inscription & Mise en relation</a>
+            <a href="/forum" class="nav-link">Forum</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/aide" class="nav-link">Aide</a>
+            <a href="/compte" class="nav-link">Compte</a>
+        </nav>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-header">Chat Général</div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Les messages seront ajoutés ici dynamiquement -->
+        </div>
+        <div class="message-input-container">
+            <input type="text" class="message-input" id="messageInput" placeholder="Écrivez votre message...">
+            <button class="send-button" onclick="sendMessage()">Envoyer</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulation de messages pour démonstration
+        const messages = [
+            { user: 'Alice', text: 'Bonjour à tous ! Comment allez-vous aujourd\'hui ?', timestamp: '10:30', type: 'received' },
+            { user: 'Bob', text: 'Très bien merci ! Quelqu\'un aurait besoin d\'aide pour du jardinage ?', timestamp: '10:32', type: 'sent' },
+            { user: 'Charlie', text: 'Je peux aider pour le jardinage ! Je suis disponible ce weekend.', timestamp: '10:35', type: 'received' }
+        ];
+
+        function displayMessages() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+            
+            messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message message-${msg.type}`;
+                messageDiv.innerHTML = `
+                    <div class="message-header">
+                        <span>${msg.user}</span>
+                        <span>${msg.timestamp}</span>
+                    </div>
+                    <div class="message-content">${msg.text}</div>
+                `;
+                chatMessages.appendChild(messageDiv);
+            });
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                const newMessage = {
+                    user: 'Vous',
+                    text: message,
+                    timestamp: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),
+                    type: 'sent'
+                };
+                
+                messages.push(newMessage);
+                displayMessages();
+                input.value = '';
+            }
+        }
+
+        // Écouter la touche Entrée pour envoyer le message
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Afficher les messages initiaux
+        displayMessages();
+    </script>
+</body>
+</html>

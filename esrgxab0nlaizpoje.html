@@ -1,0 +1,360 @@
+<html><head><base href="/accueil">
+<meta charset="UTF-8">
+<title>TRUSTHELP - Accueil</title>
+<style>
+/* Import de la police futuriste */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+:root {
+    --primary-blue: #00ffff;
+    --secondary-pink: #ff69b4;
+    --bg-dark: #0a0a2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, var(--bg-dark), #1a1a4a);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Header Navigation */
+.nav-header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--primary-blue);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-shadow: 0 0 10px var(--primary-blue);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--secondary-pink);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--secondary-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 105, 180, 0.1);
+    box-shadow: 0 0 10px var(--secondary-pink);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 60px;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    border: 1px solid var(--primary-blue);
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    text-shadow: 0 0 20px var(--primary-blue);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: var(--secondary-pink);
+    margin-bottom: 1rem;
+}
+
+/* Call to Action */
+.cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('background-pattern.svg');
+    background-attachment: fixed;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.cta-button:hover {
+    background: var(--primary-blue);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--primary-blue);
+}
+
+/* Animation des particules */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--primary-blue);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    color: var(--secondary-pink);
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--secondary-pink);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--secondary-pink);
+    color: var(--bg-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="/accueil" class="logo">TRUSTHELP</a>
+            <nav class="nav-links">
+                <a href="/accueil" class="nav-link">Accueil</a>
+                <a href="/inscription-relation" class="nav-link">Inscription & Mise en relation</a>
+                <a href="/rencontre" class="nav-link">Rencontre</a>
+                <a href="/forum" class="nav-link">Forum</a>
+                <a href="/contact" class="nav-link">Contact</a>
+                <a href="/aide" class="nav-link">Aide</a>
+                <a href="/compte" class="nav-link">Compte</a>
+                <a href="/faire-un-don" class="nav-link">Faire un Don</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="particles" id="particles"></div>
+            <div class="hero-content">
+                <h1>Bienvenue sur TRUSTHELP</h1>
+                <p>Rejoignez notre communauté d'entraide et de rencontres authentiques. 
+                   Ensemble, créons des liens de confiance et partageons nos expériences.</p>
+                <a href="/inscription-relation" class="cta-button">Commencer l'aventure</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Mise en Relation</h3>
+                    <p>Trouvez des personnes partageant vos centres d'intérêt et créez des connexions authentiques.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Forum d'Entraide</h3>
+                    <p>Partagez vos expériences et bénéficiez des conseils de notre communauté bienveillante.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Sécurité Garantie</h3>
+                    <p>Votre sécurité est notre priorité. Profitez d'un environnement sûr et vérifié.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Prêt à rejoindre notre communauté ?</h2>
+            <p>Inscrivez-vous gratuitement et commencez votre voyage avec TRUSTHELP</p>
+            <a href="/inscription-relation" class="cta-button">S'inscrire maintenant</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 TRUSTHELP - Tous droits réservés</p>
+            <div class="social-links">
+                <a href="https://facebook.com/trusthelp" class="social-link">FB</a>
+                <a href="https://twitter.com/trusthelp" class="social-link">TW</a>
+                <a href="https://instagram.com/trusthelp" class="social-link">IG</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation des particules
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Position aléatoire
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Délai d'animation aléatoire
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Défilement fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+        });
+
+        // Animation au défilement
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.feature-card');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight && position.bottom >= 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

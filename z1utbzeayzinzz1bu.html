@@ -1,0 +1,205 @@
+<html><head><base href="https://trusthelp.com/aide">
+<meta charset="UTF-8">
+<title>TRUSTHELP - Aide</title>
+<style>
+    :root {
+        --neon-blue: #00ffff;
+        --neon-purple: #ff00ff;
+        --dark-bg: #0a0a2e;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(45deg, var(--dark-bg), #1a1a4a);
+        color: #fff;
+    }
+
+    .nav-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        z-index: 1000;
+        border-bottom: 1px solid var(--neon-blue);
+        display: flex;
+        align-items: center;
+    }
+
+    .brand-title {
+        color: #ff69b4;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-shadow: 0 0 10px #ff69b4;
+        margin-right: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        color: var(--neon-blue);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background: rgba(0, 255, 255, 0.1);
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .emergency-banner {
+        background: rgba(255, 0, 0, 0.2);
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin-top: 80px;
+        border: 1px solid red;
+        animation: pulse 2s infinite;
+    }
+
+    .help-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 2rem;
+    }
+
+    .help-category {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 15px;
+        border: 1px solid var(--neon-blue);
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .help-category:hover {
+        transform: translateY(-5px);
+    }
+
+    .help-category h2 {
+        color: var(--neon-purple);
+        border-bottom: 2px solid var(--neon-purple);
+        padding-bottom: 0.5rem;
+    }
+
+    .contact-info {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    @keyframes pulse {
+        0% { background-color: rgba(255, 0, 0, 0.2); }
+        50% { background-color: rgba(255, 0, 0, 0.4); }
+        100% { background-color: rgba(255, 0, 0, 0.2); }
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nav-header">
+        <div class="brand-title">TRUSTHELP</div>
+        <nav class="nav-links">
+            <a href="/accueil" class="nav-link">Accueil</a>
+            <a href="/inscription-relation" class="nav-link">Inscription & Mise en relation</a>
+            <a href="/forum" class="nav-link">Forum</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/aide" class="nav-link">Aide</a>
+            <a href="/compte" class="nav-link">Compte</a>
+        </nav>
+    </header>
+
+    <div class="emergency-banner">
+        URGENCE : Contactez le 115 pour toute aide d'urgence
+    </div>
+
+    <div class="help-container">
+        <div class="help-category">
+            <h2>SDF (Sans Domicile Fixe)</h2>
+            <div class="contact-info">
+                <p>• SAMU Social : 115 (24h/24, gratuit)</p>
+                <p>• Resto du Cœur : <a href="https://www.restosducoeur.org">www.restosducoeur.org</a></p>
+                <p>• Secours Populaire : 01 44 78 21 00</p>
+                <p>• Aide au logement (CAF) : <a href="https://www.caf.fr">www.caf.fr</a></p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Artistes en Détresse</h2>
+            <div class="contact-info">
+                <p>• Maison des Artistes : 01 53 35 83 63</p>
+                <p>• ADAMI (société civile pour l'administration des droits) : 01 44 63 10 00</p>
+                <p>• Aide d'urgence aux artistes : <a href="https://www.culture.gouv.fr">www.culture.gouv.fr</a></p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Personnes en Situation de Handicap</h2>
+            <div class="contact-info">
+                <p>• MDPH (Maison Départementale des Personnes Handicapées) : 0800 869 869</p>
+                <p>• APF France Handicap : 01 40 78 69 00</p>
+                <p>• Allocation Adulte Handicapé (AAH) : <a href="https://www.caf.fr">www.caf.fr</a></p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Victimes de Violences Conjugales</h2>
+            <div class="contact-info">
+                <p>• Violences Femmes Info : 3919 (gratuit et anonyme)</p>
+                <p>• SOS Hommes Battus : 09 70 40 81 96</p>
+                <p>• Signalement en ligne : <a href="https://arretonslesviolences.gouv.fr">arretonslesviolences.gouv.fr</a></p>
+                <p>• En cas d'urgence : 17 ou 112</p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Personnes Isolées</h2>
+            <div class="contact-info">
+                <p>• SOS Amitié : 09 72 39 40 50 (24h/24)</p>
+                <p>• Croix-Rouge Écoute : 0800 858 858</p>
+                <p>• Les Petits Frères des Pauvres : 0800 47 47 88</p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Personnes Dépressives</h2>
+            <div class="contact-info">
+                <p>• SOS Dépression : 0892 701 938</p>
+                <p>• Fil Santé Jeunes : 0800 235 236</p>
+                <p>• Centres Médico-Psychologiques (CMP) : Consultez l'annuaire de votre ville</p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Personnes Âgées</h2>
+            <div class="contact-info">
+                <p>• CLIC (Centres Locaux d'Information et de Coordination) : Contact selon département</p>
+                <p>• CCAS de votre commune</p>
+                <p>• Services d'aide à domicile : APA (Allocation Personnalisée d'Autonomie)</p>
+            </div>
+        </div>
+
+        <div class="help-category">
+            <h2>Prévention Suicide</h2>
+            <div class="contact-info">
+                <p>• SOS Suicide : 01 40 44 46 45 (24h/24)</p>
+                <p>• Suicide Écoute : 01 45 39 40 00</p>
+                <p>• Numéro national de prévention du suicide : 3114 (gratuit, 24h/24 7j/7)</p>
+                <p>• En cas d'urgence : 15 (SAMU)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

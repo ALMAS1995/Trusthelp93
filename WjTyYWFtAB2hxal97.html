@@ -1,0 +1,1052 @@
+<html><head><base href="https://www.trusthelp.fr/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>TrustHelp - Plateforme de Solidarité Futuriste</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+  :root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --bg-color: #0a0a2a;
+    --text-color: #ffffff;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    background: rgba(0,0,0,0.5);
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(0, 255, 255, 0.1) 0%,
+      rgba(255, 0, 255, 0.1) 100%
+    );
+    animation: glowingBackground 10s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes glowingBackground {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes textGlow {
+    from { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color); }
+    to { text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color); }
+  }
+
+  nav ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  nav ul li {
+    margin-right: 20px;
+  }
+
+  nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  nav ul li a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .main-content {
+    display: flex;
+    margin-top: 50px;
+    position: relative;
+  }
+
+  .main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" stroke="%2300ffff" stroke-width="0.25" width="100" height="100"/></svg>') repeat;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .inscription, .mise-en-relation {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+  }
+
+  .inscription {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .mise-en-relation {
+    flex: 2;
+  }
+
+  h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input, select, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+    transition: box-shadow 0.3s ease;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+
+  button {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+  }
+
+  .profile {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  .chat-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .chat-button:hover {
+    transform: scale(1.05);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    background-color: var(--bg-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--primary-color);
+  }
+
+  .close {
+    color: var(--primary-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #chat-messages {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #chat-input {
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.1);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+  }
+
+  #send-message {
+    width: 18%;
+    padding: 10px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--bg-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  #send-message:hover {
+    transform: scale(1.05);
+  }
+
+  .status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .online {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .offline {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .message {
+    position: relative;
+    background: rgba(255,255,255,0.1);
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .message:hover {
+    transform: translateX(5px);
+  }
+
+  .message.unread {
+    border-left-color: var(--secondary-color);
+    background: rgba(255,0,255,0.1);
+  }
+
+  .message-date {
+    font-size: 0.8em;
+    color: #aaa;
+  }
+
+  .reply-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  #new-messages-notification {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .sent, .received {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    max-width: 80%;
+  }
+
+  .sent {
+    background: rgba(0, 255, 255, 0.1);
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .received {
+    background: rgba(255, 0, 255, 0.1);
+    margin-right: auto;
+  }
+
+  /* Mobile styles */
+  @media screen and (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    .main-content {
+      flex-direction: column;
+    }
+
+    .inscription {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .profile {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .profile img {
+      margin: 0 auto 20px;
+    }
+
+    .modal-content {
+      width: 95%;
+      margin: 5% auto;
+    }
+  }
+
+  /* Tablet styles */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+      width: 95%;
+    }
+
+    .profile {
+      flex-wrap: wrap;
+    }
+  }
+
+  /* Cross-browser compatibility fixes */
+  .profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  input, select, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* Improved scrolling on iOS */
+  #chat-messages {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Touch-friendly buttons and links */
+  button, 
+  .chat-button,
+  nav ul li a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 20px;
+  }
+
+  /* Prevent text size adjustment on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better form controls on mobile */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Search and filter styles */
+  .search-controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+  }
+
+  .filter-select {
+    min-width: 150px;
+    padding: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+  }
+
+  /* Enhanced cross-browser compatibility */
+  .profile {
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  /* Safari-specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .profile {
+      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+    }
+    
+    input, select, textarea {
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+  }
+
+  /* Enhanced mobile responsiveness */
+  @media screen and (max-width: 480px) {
+    .search-controls {
+      flex-direction: column;
+    }
+    
+    .search-input,
+    .filter-select {
+      width: 100%;
+    }
+    
+    .profile {
+      padding: 10px;
+    }
+    
+    .profile img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <h1>TrustHelp</h1>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="#inscription">Inscription & Mise en relation</a></li>
+        <li><a href="#don">Faire un don</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" id="login-button">Se connecter</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="accueil">
+      <h1>Bienvenue sur TrustHelp</h1>
+      <p>TrustHelp est à la fois une entreprise et une association qui permet aux personnes souhaitant apporter leur aide de se mettre en relation avec des personnes dans le besoin.</p>
+    </section>
+
+    <section id="inscription" class="main-content">
+      <div class="inscription">
+        <h2>Inscription</h2>
+        <form id="inscription-form">
+          <input type="text" name="nom" placeholder="Nom" required>
+          <input type="text" name="prenom" placeholder="Prénom" required>
+          <select name="type" required>
+            <option value="">Je suis...</option>
+            <option value="aidant">Aidant</option>
+            <option value="besoin">Personne dans le besoin</option>
+          </select>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Mot de passe" required>
+          <input type="text" name="departement" placeholder="Département" required>
+          <input type="text" name="ville" placeholder="Ville" required>
+          <input type="number" name="age" placeholder="Âge" required>
+          <select name="genre" required>
+            <option value="">Genre</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+          </select>
+          <textarea name="presentation" placeholder="Présentation" required></textarea>
+          <textarea name="services" placeholder="Services rendus"></textarea>
+          <input type="file" name="photo" accept="image/*" required>
+          <button type="submit">S'inscrire</button>
+        </form>
+      </div>
+      
+      <div class="mise-en-relation">
+        <h2>Mise en relation</h2>
+        <div class="search-controls">
+          <input type="text" id="profile-search" placeholder="Rechercher des profils..." class="search-input">
+          <select id="profile-filter" class="filter-select">
+            <option value="all">Tous les profils</option>
+            <option value="online">En ligne</option>
+            <option value="offline">Hors ligne</option>
+            <option value="aidant">Aidants</option>
+            <option value="besoin">Personnes dans le besoin</option>
+          </select>
+        </div>
+        <div id="profiles-container"></div>
+      </div>
+    </section>
+
+    <section id="don">
+      <h2>Faire un don</h2>
+      <p>Si vous souhaitez nous aider pour les frais du site et de l'application, vous pouvez faire un don à la cagnotte Leetchi : TRUSTHELP</p>
+      <a href="https://www.leetchi.com/c/trusthelp" target="_blank" rel="noopener noreferrer">
+        <button>Faire un don</button>
+      </a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Vous pouvez nous contacter à l'adresse suivante ou nous signaler une personne : Trusthelp95@gmail.com</p>
+    </section>
+    
+    <section id="compte" style="display: none;">
+      <h2>Mon Compte</h2>
+      <div id="user-info"></div>
+      <div id="new-messages-notification" style="display: none;">
+        <p>Vous avez de nouveaux messages non lus!</p>
+      </div>
+      <button id="view-messages">Voir mes messages</button>
+      <button id="edit-profile">Modifier mon profil</button>
+      <button id="delete-account">Supprimer mon compte</button>
+      <div id="messages-container" style="display: none;"></div>
+    </section>
+  </main>
+
+  <div id="chat-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Chat</h2>
+      <div id="chat-messages"></div>
+      <input type="text" id="chat-input" placeholder="Tapez votre message...">
+      <button id="send-message">Envoyer</button>
+    </div>
+  </div>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Connexion</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    let activeRecipient = null;
+    let activeChat = null;
+
+    function saveProfiles(profiles) {
+      localStorage.setItem('trusthelpProfiles', JSON.stringify(profiles));
+    }
+
+    function loadProfiles() {
+      const savedProfiles = localStorage.getItem('trusthelpProfiles');
+      return savedProfiles ? JSON.parse(savedProfiles) : [];
+    }
+
+    let profiles = loadProfiles();
+    let currentUser = null;
+
+    function addProfile(name, type, email, password, department, city, age, genre, presentation, services, photo) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const newProfile = {
+          name, type, email, password, department, city, age, genre, presentation, services,
+          photo: e.target.result,
+          online: Math.random() < 0.5,
+          messages: []
+        };
+        profiles.push(newProfile);
+        saveProfiles(profiles);
+        displayProfiles();
+      }
+      reader.readAsDataURL(photo);
+    }
+
+    function displayProfiles() {
+      $('#profiles-container').empty();
+      profiles.forEach(profile => {
+        const profileHtml = `
+          <div class="profile">
+            <img src="${profile.photo}" alt="Photo de profil de ${profile.name}">
+            <div class="profile-info">
+              <h3>${profile.name}</h3>
+              <p>Type: ${profile.type}</p>
+              <p>Email: ${profile.email}</p>
+              <p>Département: ${profile.department}</p>
+              <p>Ville: ${profile.city}</p>
+              <p>Âge: ${profile.age}</p>
+              <p>Genre: ${profile.genre}</p>
+              <p>Présentation: ${profile.presentation}</p>
+              <p>Services: ${profile.services}</p>
+              <p class="status ${profile.online ? 'online' : 'offline'}">
+                ${profile.online ? 'En ligne' : 'Hors ligne'}
+              </p>
+            </div>
+            <button class="chat-button" data-email="${profile.email}">Chatter</button>
+          </div>
+        `;
+        $('#profiles-container').prepend(profileHtml);
+      });
+    }
+
+    function filterProfiles(searchTerm) {
+      const filteredProfiles = profiles.filter(profile => {
+        const searchString = `${profile.name} ${profile.type} ${profile.department} ${profile.city} ${profile.presentation} ${profile.services}`.toLowerCase();
+        return searchString.includes(searchTerm.toLowerCase());
+      });
+      displayFilteredProfiles(filteredProfiles);
+    }
+
+    function displayFilteredProfiles(filteredProfiles) {
+      $('#profiles-container').empty();
+      filteredProfiles.forEach(profile => {
+        const profileHtml = `
+          <div class="profile">
+            <img src="${profile.photo}" alt="Photo de profil de ${profile.name}">
+            <div class="profile-info">
+              <h3>${profile.name}</h3>
+              <p>Type: ${profile.type}</p>
+              <p>Département: ${profile.department}</p>
+              <p>Ville: ${profile.city}</p>
+              <p>Présentation: ${profile.presentation}</p>
+              <p>Services: ${profile.services}</p>
+              <p class="status ${profile.online ? 'online' : 'offline'}">
+                ${profile.online ? 'En ligne' : 'Hors ligne'}
+              </p>
+            </div>
+            <button class="chat-button" data-email="${profile.email}">Chatter</button>
+          </div>
+        `;
+        $('#profiles-container').prepend(profileHtml);
+      });
+    }
+
+    function login(email, password) {
+      const user = profiles.find(p => p.email === email && p.password === password);
+      if (user) {
+        currentUser = user;
+        showUserAccount();
+        checkNewMessages();
+      } else {
+        alert("Email ou mot de passe incorrect");
+      }
+    }
+
+    function checkNewMessages() {
+      if (currentUser && currentUser.messages) {
+        const unreadCount = currentUser.messages.filter(msg => !msg.read).length;
+        if (unreadCount > 0) {
+          $('#new-messages-notification').html(`
+            <p>Vous avez ${unreadCount} message${unreadCount > 1 ? 's' : ''} non lu${unreadCount > 1 ? 's' : ''}!</p>
+          `).show();
+        } else {
+          $('#new-messages-notification').hide();
+        }
+      }
+    }
+
+    function showUserAccount() {
+      $('#compte').show();
+      updateUserInfo();
+      $('#login-modal').hide();
+    }
+
+    function updateUserInfo() {
+      if (currentUser) {
+        $('#user-info').html(`
+          <h3>${currentUser.name}</h3>
+          <p>Email: ${currentUser.email}</p>
+          <p>Type: ${currentUser.type}</p>
+        `);
+      }
+    }
+
+    function viewMessages() {
+      if (currentUser.messages && currentUser.messages.length > 0) {
+        let messagesHtml = '';
+        currentUser.messages.forEach((msg, index) => {
+          const unreadClass = !msg.read ? 'unread' : '';
+          messagesHtml += `
+            <div class="message ${unreadClass}">
+              <p><strong>De:</strong> ${msg.from}</p>
+              <p>${msg.content}</p>
+              <p class="message-date">${new Date(msg.date).toLocaleString()}</p>
+              <button class="chat-button reply-button" data-email="${msg.from}" data-index="${index}">
+                Répondre
+              </button>
+            </div>
+          `;
+          msg.read = true;
+        });
+        $('#messages-container').html(messagesHtml).show();
+        $('#new-messages-notification').hide();
+        saveProfiles(profiles);
+      } else {
+        $('#messages-container').html(`
+          <div class="message">
+            <p>Vous n'avez aucun message pour le moment.</p>
+          </div>
+        `).show();
+      }
+    }
+
+    function replyToMessage(index) {
+      const message = currentUser.messages[index];
+      $('#chat-modal').show();
+      $('#chat-modal h2').text(`Répondre à ${message.from}`);
+      $('#chat-messages').empty();
+      
+      const conversation = profiles
+        .find(p => p.email === currentUser?.email)?.messages
+        .filter(m => m.from === message.from || m.to === message.from)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+        
+      if (conversation) {
+        conversation.forEach(msg => {
+          const isFromMe = msg.from === currentUser.email;
+          $('#chat-messages').append(`
+            <p class="${isFromMe ? 'sent' : 'received'}">
+              <strong>${isFromMe ? 'Vous' : msg.from}:</strong> ${msg.content}
+            </p>
+          `);
+        });
+      }
+    }
+
+    function editProfile() {
+      alert("Fonctionnalité de modification de profil à implémenter");
+    }
+
+    function deleteAccount() {
+      if (confirm("Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.")) {
+        profiles = profiles.filter(p => p.email !== currentUser.email);
+        saveProfiles(profiles);
+        currentUser = null;
+        $('#compte').hide();
+        alert("Votre compte a été supprimé avec succès.");
+      }
+    }
+
+    $(document).ready(function() {
+      profiles = loadProfiles();
+      displayProfiles();
+
+      $('#inscription-form').submit(function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const name = formData.get('nom') + ' ' + formData.get('prenom');
+        const type = formData.get('type');
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const department = formData.get('departement');
+        const city = formData.get('ville');
+        const age = formData.get('age');
+        const genre = formData.get('genre');
+        const presentation = formData.get('presentation');
+        const services = formData.get('services');
+        const photo = formData.get('photo');
+
+        addProfile(name, type, email, password, department, city, age, genre, presentation, services, photo);
+        this.reset();
+      });
+
+      $('#profile-search').on('input', function() {
+        const searchTerm = $(this).val();
+        filterProfiles(searchTerm);
+      });
+
+      $('#profile-filter').on('change', function() {
+        const filterValue = $(this).val();
+        let filtered = profiles;
+        
+        switch(filterValue) {
+          case 'online':
+            filtered = profiles.filter(p => p.online);
+            break;
+          case 'offline':
+            filtered = profiles.filter(p => !p.online);
+            break;
+          case 'aidant':
+            filtered = profiles.filter(p => p.type === 'aidant');
+            break;
+          case 'besoin':
+            filtered = profiles.filter(p => p.type === 'besoin');
+            break;
+        }
+        
+        displayFilteredProfiles(filtered);
+      });
+
+      $('#login-button').click(function(e) {
+        e.preventDefault();
+        $('#login-modal').show();
+      });
+
+      $('#login-form').submit(function(e) {
+        e.preventDefault();
+        const email = $('#login-email').val();
+        const password = $('#login-password').val();
+        login(email, password);
+      });
+
+      $('#view-messages').click(viewMessages);
+      $('#edit-profile').click(editProfile);
+      $('#delete-account').click(deleteAccount);
+
+      $(document).on('click', '.chat-button', function() {
+        const recipientEmail = $(this).data('email');
+        activeRecipient = recipientEmail;
+        
+        const recipientProfile = profiles.find(p => p.email === recipientEmail);
+        if (recipientProfile) {
+          $('#chat-modal').show();
+          $('#chat-modal h2').text(`Chat avec ${recipientProfile.name}`);
+          $('#chat-messages').empty();
+          
+          const conversation = profiles
+            .find(p => p.email === currentUser?.email)?.messages
+            .filter(m => m.from === recipientEmail || m.to === recipientEmail)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+          
+          if (conversation) {
+            conversation.forEach(msg => {
+              const isFromMe = msg.from === currentUser.email;
+              $('#chat-messages').append(`
+                <p class="${isFromMe ? 'sent' : 'received'}">
+                  <strong>${isFromMe ? 'Vous' : msg.from}:</strong> ${msg.content}
+                </p>
+              `);
+            });
+          }
+        } else {
+          alert("Veuillez vous connecter pour chatter");
+        }
+      });
+
+      $(document).on('click', '.reply-button', function() {
+        const index = $(this).data('index');
+        replyToMessage(index);
+      });
+
+      $('.close').click(function() {
+        $(this).closest('.modal').hide();
+      });
+
+      $('#send-message').click(function() {
+        const message = $('#chat-input').val();
+        if (message && activeRecipient && currentUser) {
+          const recipientProfile = profiles.find(p => p.email === activeRecipient);
+          if (recipientProfile) {
+            recipientProfile.messages.push({
+              from: currentUser.email,
+              to: activeRecipient,
+              content: message,
+              date: new Date().toISOString(),
+              read: false
+            });
+            
+            currentUser.messages.push({
+              from: currentUser.email,
+              to: activeRecipient,
+              content: message,
+              date: new Date().toISOString(),
+              read: true
+            });
+            
+            $('#chat-messages').append(`
+              <p class="sent"><strong>Vous:</strong> ${message}</p>
+            `);
+            $('#chat-input').val('');
+            saveProfiles(profiles);
+            
+            if ($('#messages-container').is(':visible')) {
+              viewMessages();
+            }
+          }
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        jQuery.event.special.touchstart = {
+          setup: function( _, ns, handle ) {
+            this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+          }
+        };
+
+        const buttons = document.querySelectorAll('button, .chat-button');
+        buttons.forEach(button => {
+          button.addEventListener('touchstart', function() {
+            this.style.opacity = '0.7';
+          });
+          button.addEventListener('touchend', function() {
+            this.style.opacity = '1';
+          });
+        });
+      });
+
+      const getBrowser = () => {
+        const userAgent = navigator.userAgent;
+        let browserName;
+        
+        if(userAgent.match(/chrome|chromium|crios/i)) {
+          browserName = "chrome";
+        } else if(userAgent.match(/firefox|fxios/i)) {
+          browserName = "firefox";
+        } else if(userAgent.match(/safari/i)) {
+          browserName = "safari";
+        } else if(userAgent.match(/edge/i)) {
+          browserName = "edge";
+        }
+        
+        document.body.classList.add(`browser-${browserName}`);
+      };
+
+      getBrowser();
+    });
+  </script>
+</body>
+</html>

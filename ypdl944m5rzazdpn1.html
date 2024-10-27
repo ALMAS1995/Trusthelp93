@@ -1,0 +1,265 @@
+<html><head><base href="https://trusthelp.com/accueil">
+<meta charset="UTF-8">
+<title>TRUSTHELP - Accueil</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    :root {
+        --primary-color: #00ffff;
+        --secondary-color: #ff69b4;
+        --bg-dark: #0a0a2e;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(45deg, var(--bg-dark), #1a1a4a);
+        color: #fff;
+        min-height: 100vh;
+    }
+
+    .site-logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-shadow: 0 0 10px var(--primary-color);
+        margin-right: 2rem;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .nav-header {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--primary-color);
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .nav-link {
+        color: var(--secondary-color);
+        text-decoration: none;
+        text-shadow: 0 0 5px var(--secondary-color);
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background: rgba(255, 105, 180, 0.1);
+        box-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    .hero-section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 2rem;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230a0a2e;stop-opacity:1" /><stop offset="100%" style="stop-color:%231a1a4a;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad)"/><g fill="%2300ffff" opacity="0.1"><circle cx="100" cy="100" r="20"/><circle cx="400" cy="300" r="30"/><circle cx="700" cy="200" r="25"/><circle cx="900" cy="400" r="35"/></g></svg>');
+    }
+
+    .hero-content {
+        max-width: 800px;
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        text-shadow: 0 0 20px var(--primary-color);
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: var(--secondary-color);
+        text-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+        border: 2px solid var(--primary-color);
+        background: transparent;
+        color: var(--primary-color);
+        border-radius: 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .cta-button:hover {
+        background: var(--primary-color);
+        color: var(--bg-dark);
+        box-shadow: 0 0 20px var(--primary-color);
+        transform: translateY(-3px);
+    }
+
+    .features-section {
+        padding: 4rem 2rem;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .feature-card {
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--primary-color);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px var(--primary-color);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .feature-title {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+
+    .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-20px); }
+        60% { transform: translateY(-10px); }
+    }
+</style>
+</head>
+<body>
+    <header class="nav-header">
+        <a href="/accueil" class="site-logo">TRUSTHELP</a>
+        <nav class="nav-links">
+            <a href="/accueil" class="nav-link">Accueil</a>
+            <a href="/inscription-relation" class="nav-link">Inscription & Mise en relation</a>
+            <a href="/rencontre" class="nav-link">Rencontre</a>
+            <a href="/forum" class="nav-link">Forum</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/aide" class="nav-link">Aide</a>
+            <a href="/compte" class="nav-link">Compte</a>
+            <a href="/faire-un-don" class="nav-link">Faire un Don</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Bienvenue sur TRUSTHELP</h1>
+            <p class="hero-subtitle">La plateforme qui connecte ceux qui ont besoin d'aide avec ceux qui souhaitent aider</p>
+            <div class="cta-buttons">
+                <a href="/inscription-relation" class="cta-button">Je veux aider</a>
+                <a href="/inscription-relation" class="cta-button">J'ai besoin d'aide</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3 class="feature-title">Mise en relation</h3>
+                <p>Trouvez facilement la personne qui pourra vous aider ou que vous pourrez aider</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">Communication directe</h3>
+                <p>Échangez en temps réel via notre système de messagerie intégré</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3 class="feature-title">Système d'avis</h3>
+                <p>Consultez et partagez des avis pour une communauté de confiance</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3 class="feature-title">Entraide locale</h3>
+                <p>Créez des liens et aidez votre communauté locale</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animation fluide du défilement
+            document.querySelector('.scroll-indicator').addEventListener('click', () => {
+                const featuresSection = document.querySelector('.features-section');
+                featuresSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Animation des cartes au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease-out';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
